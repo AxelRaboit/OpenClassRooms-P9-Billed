@@ -43,7 +43,6 @@ export default class NewBill {
         }
       })
       .then(({fileUrl, key}) => {
-        console.log(fileUrl)
         this.billId = key
         this.fileUrl = fileUrl
         this.fileName = fileName
@@ -53,31 +52,6 @@ export default class NewBill {
     e.preventDefault()
     console.log('e.target.querySelector(`input[data-testid="datepicker"]`).value', e.target.querySelector(`input[data-testid="datepicker"]`).value)
     
-    // Better check if inputs are not empty
-    const nameCheck = e.target.querySelector(`input[data-testid="expense-name"]`).value
-    const typeCheck = e.target.querySelector(`select[data-testid="expense-type"]`).value
-    const amountCheck = parseInt(e.target.querySelector(`input[data-testid="amount"]`).value);
-    const dateCheck = e.target.querySelector(`input[data-testid="datepicker"]`).value;
-    const vatCheck = e.target.querySelector(`input[data-testid="vat"]`).value;
-    const pctCheck = parseInt(e.target.querySelector(`input[data-testid="pct"]`).value) || 20;
-    const fileUrlCheck = this.fileUrl;
-    const fileNameCheck = this.fileName;
-
-    // Only the commentary is not required
-    if (
-        nameCheck === '' ||
-        typeCheck === '' ||
-        amountCheck === '' ||
-        dateCheck === '' ||
-        vatCheck === '' ||
-        pctCheck === '' ||
-        fileUrlCheck === '' ||
-        fileNameCheck === ''
-      ) {
-      alert('Des champs obligatoires sont vides, Veuillez les remplir.');
-      return false;
-    }
-
     const email = JSON.parse(localStorage.getItem("user")).email
     const bill = {
       email,
