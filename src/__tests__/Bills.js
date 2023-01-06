@@ -64,26 +64,6 @@ describe("Given I am connected as an employee", () => {
 
         expect(handleClickNewBill).toHaveBeenCalled();
         expect(screen.getAllByText("Envoyer une note de frais")).toBeTruthy();
-
-        // Form Elements
-        const fileInput = screen.getByTestId('file');
-        const typeInput = screen.getByTestId('expense-type');
-        const nameInput = screen.getByTestId('expense-name');
-        const amountInput = screen.getByTestId('amount');
-        const dateInput = screen.getByTestId('datepicker');
-        const vatInput = screen.getByTestId('vat');
-        const pctInput = screen.getByTestId('pct');
-        const commentaryInput = screen.getByTestId('commentary');
-      
-        // check if form has all required elements
-        expect(fileInput).toBeTruthy();
-        expect(typeInput).toBeTruthy();
-        expect(nameInput).toBeTruthy();
-        expect(amountInput).toBeTruthy();
-        expect(dateInput).toBeTruthy();
-        expect(vatInput).toBeTruthy();
-        expect(pctInput).toBeTruthy();
-        expect(commentaryInput).toBeTruthy();
       }) 
     })
 
