@@ -1,5 +1,4 @@
 import { fireEvent, screen, waitFor } from "@testing-library/dom"
-import userEvent from '@testing-library/user-event'
 import NewBillUI from "../views/NewBillUI.js"
 import NewBill from "../containers/NewBill.js"
 import { ROUTES, ROUTES_PATH } from "../constants/routes"
@@ -120,7 +119,7 @@ describe("Given I am connected as an employee", () => {
         
         const validBill = {
           type: "Restaurants et bars",
-          name: "Vol Paris Londres",
+          name: "Vol Paris Montréal",
           date: "2022-02-15",
           amount: 200,
           vat: 70,
@@ -133,7 +132,7 @@ describe("Given I am connected as an employee", () => {
 
         const alternateValidBill = {
           type: "Restaurants et bars",
-          name: "Vol Paris Londres",
+          name: "Vol Paris Montréal",
           date: "2022-02-15",
           amount: 200,
           vat: 70,
@@ -143,7 +142,6 @@ describe("Given I am connected as an employee", () => {
           fileName: "test.jpg",
           status: "pending"
         }
-
 
         screen.getByTestId("expense-type").value = validBill.type
         screen.getByTestId("expense-name").value = validBill.name
