@@ -26,7 +26,19 @@ export default class NewBill {
     const validFileType = /(\.jpg|\.jpeg|\.png)/;
 
     if (!validFileType.exec(filePath)) {
-      alert('Seuls les fichiers jpg, jpeg ou png sont acceptés.');
+      /* alert('Seuls les fichiers jpg, jpeg ou png sont acceptés.'); */
+      
+      if (this.document.querySelector('.error-message')){
+        fileInput.value=''
+        return false;
+      }
+        
+      const errorMessage = this.document.createElement('div')
+      errorMessage.setAttribute('data-testid', 'newbill-file-error-message')
+      errorMessage.style.color = 'red'
+      errorMessage.innerHTML = 'Seuls les fichiers jpg, jpeg ou png sont acceptés.'
+      errorMessage.classList.add('error-message')
+      fileInput.insertAdjacentElement('afterend', errorMessage)
       fileInput.value=''
       return false;
     } 

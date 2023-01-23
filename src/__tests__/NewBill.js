@@ -100,10 +100,17 @@ describe("Given I am connected as an employee", () => {
       const handleChangeFile = jest.fn(newBill.handleChangeFile)
       const inputFile = screen.getByTestId("file");
       expect(inputFile).toBeTruthy()
+
+
       inputFile.addEventListener("change", handleChangeFile)
       fireEvent.change(inputFile, { target: { files: [new File(["file.pdf"], "file.pdf", { type: "file/pdf" })] } })
+
+
       expect(handleChangeFile).toHaveBeenCalled();
       expect(inputFile.files[0].name).not.toBe("file.jpg")
+
+      const errorMessage = screen.getByTestId("newbill-file-error-message")
+      expect(errorMessage).toBeTruthy()
     })
 
     describe("Then I can submit the form completed", () => {
